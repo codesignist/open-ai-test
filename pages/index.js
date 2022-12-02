@@ -3,11 +3,13 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
   const [animalInput, setAnimalInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
     event.preventDefault();
+    setLoading(true);
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -15,6 +17,7 @@ export default function Home() {
       },
       body: JSON.stringify({ animal: animalInput }),
     });
+    setLoading(false);
     const data = await response.json();
     setResult(data.result);
     setAnimalInput("");
@@ -41,9 +44,11 @@ export default function Home() {
           <p>
             <b>Örn:</b> Kedi, Köpek, Muhabbet Kuşu vb.
           </p>
-          <input type="submit" value="İsim oluştur" />
+          <input disabled={loading} type="submit" value="İsim oluştur" />
         </form>
-        <div className={styles.result}>{result}</div>
+        <div className={styles.result}>
+          {loading ? "Yükleniyor..." : result}
+        </div>
       </main>
     </div>
   );
