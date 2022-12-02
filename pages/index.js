@@ -17,10 +17,10 @@ export default function Home() {
       },
       body: JSON.stringify({ animal: animalInput }),
     });
-    setLoading(false);
     const data = await response.json();
     setResult(data.result);
     setAnimalInput("");
+    setLoading(false);
   }
 
   return (
@@ -44,11 +44,13 @@ export default function Home() {
           <p>
             <b>Örn:</b> Kedi, Köpek, Muhabbet Kuşu vb.
           </p>
-          <input disabled={loading} type="submit" value="İsim oluştur" />
+          <input
+            disabled={animalInput === "" || loading}
+            type="submit"
+            value={loading ? "Yükleniyor..." : "İsim oluştur"}
+          />
         </form>
-        <div className={styles.result}>
-          {loading ? "Yükleniyor..." : result}
-        </div>
+        <div className={styles.result}>{result}</div>
       </main>
     </div>
   );

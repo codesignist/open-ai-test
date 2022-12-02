@@ -55,6 +55,9 @@
   color: #8e8ea0;
   opacity: 1;
 }
+.main input[type="submit"]:disabled {
+  background-color: #8f8f8f;
+}
 .main input[type="submit"] {
   padding: 12px 0;
   color: #fff;
