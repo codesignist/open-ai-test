@@ -29,16 +29,19 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>Hayvan ismi ver</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Enter an animal"
+            placeholder="Hayvan türü"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <p>
+            <b>Örn:</b> Kedi, Köpek, Muhabbet Kuşu vb.
+          </p>
+          <input type="submit" value="İsim oluştur" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>
