@@ -17,7 +17,7 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for a brand that is an animal in Turkish.
+  return `Suggest three names for a superhero that is an animal in Turkish.
 
   Animal: Kedi
   Names: Kaptan Pati, Yumik Yumak, Ponçik Kedi
