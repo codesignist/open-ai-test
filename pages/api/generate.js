@@ -17,12 +17,12 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for a superhero that is an animal in Turkish.
+  return `Suggest three special names for an animal that is combine of two mutant words in Turkish.
 
   Animal: Kedi
-  Names: Kaptan Pati, Yumik Yumak, Ponçik Kedi
-  Animal: Köpek
-  Names: Hav Koruyucu, Süper Çomar, Çok havlayan
+  Names: 1) KaptanPati, 2) YumikYumak, 3) Ponçikpamuk
+  Animal: Penguen
+  Names: 1) Pengupaytak, 2) Kanatgu, 3) Kaptan pengu
   Animal: ${capitalizedAnimal}
   Names:`;
 }
